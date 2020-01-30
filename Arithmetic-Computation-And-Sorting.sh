@@ -25,16 +25,15 @@ done
 
 for((i=0;i<3;i++))
 do
-	for((j=i+1;j<4;j++))
-	do
-		if [[ ${array[i]%.*} -lt ${array[j]%.*} ]]
-		then
-				temp=${array[i]}
-				array[i]=${array[j]}
-				array[j]=$temp
-		fi
-	done
+   for((j=i+1;j<4;j++))
+   do
+      if [[ ${array[i]%.*} -gt ${array[j]%.*} ]]
+      then
+            temp=${array[i]}
+            array[i]=${array[j]}
+            array[j]=$temp
+      fi
+   done
 done
-echo Descending order : ${array[@]}
 
-	
+echo Ascending order : ${array[@]}
